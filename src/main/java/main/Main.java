@@ -3,12 +3,14 @@ package main;
 import entity.Customer;
 import entity.Payment;
 import entity.Product;
+import entity.Usuario;
 
 import java.math.BigDecimal;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 
 import static java.util.Arrays.asList;
 
