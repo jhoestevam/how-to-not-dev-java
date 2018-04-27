@@ -2,9 +2,11 @@ package main;
 
 import entity.Usuario;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class Main5 {
 
@@ -25,5 +27,21 @@ public class Main5 {
                 System.out.println(u.getPontos());
 
         usuarios.forEach(mostrarMensagem.andThen(imprimeNome).andThen(imprimePontos));
+
+
+        Predicate<Usuario> predicado = new Predicate<Usuario>() {
+            @Override
+            public boolean test(Usuario usuario) {
+                return usuario.getPontos() > 140;
+            }
+        };
+
+        List<Usuario> usuariosPredicate = new ArrayList<>();
+        usuariosPredicate.add(user1);
+        usuariosPredicate.add(user2);
+        usuariosPredicate.add(user3);
+
+        usuariosPredicate.removeIf(predicado);
+        usuariosPredicate.forEach(u -> System.out.println(u.getNome()));
     }
 }
