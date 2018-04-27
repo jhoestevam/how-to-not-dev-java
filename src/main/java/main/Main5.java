@@ -21,6 +21,9 @@ public class Main5 {
         Consumer<Usuario> imprimeNome = u ->
                 System.out.println(u.getNome());
 
-        usuarios.forEach(mostrarMensagem.andThen(imprimeNome));
+        Consumer<Usuario> imprimePontos = u ->
+                System.out.println(u.getPontos());
+
+        usuarios.forEach(mostrarMensagem.andThen(imprimeNome).andThen(imprimePontos));
     }
 }
